@@ -41,8 +41,8 @@ jobs:
         id: vars
         shell: bash
         run: |
-          echo "::set-output name=version::$(<VERSION)"
-          echo "::set-output name=git_sha::$(git rev-parse HEAD)"
+          echo "version=$(<VERSION)" >> $GITHUB_OUTPUT
+          echo "git_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
