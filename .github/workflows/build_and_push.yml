@@ -14,6 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         version:
+          - v13.0.0
           - v12.1.0
           - v12.0.0
           - v11.3.1
