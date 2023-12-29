@@ -51,7 +51,7 @@ jobs:
           build-args: |
             DMS_RELEASE=${{ matrix.version }}
             VCS_REVISION=${{ steps.vars.outputs.git_sha }}
-            VCS_VERSION=${{ steps.vars.outputs.version }} # not needed anymore starting from version 13.0.1
+            VCS_VERSION=${{ steps.vars.outputs.version }}
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: aspettl/docker-mailserver:${{ matrix.version }}
           push: true
