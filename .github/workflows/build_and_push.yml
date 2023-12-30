@@ -24,7 +24,7 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
         with:
-          platforms: arm64,arm
+          platforms: arm64
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Login to DockerHub
@@ -52,6 +52,6 @@ jobs:
             DMS_RELEASE=${{ matrix.version }}
             VCS_REVISION=${{ steps.vars.outputs.git_sha }}
             VCS_VERSION=${{ steps.vars.outputs.version }}
-          platforms: linux/amd64,linux/arm/v7,linux/arm64
+          platforms: linux/amd64,linux/arm64
           tags: aspettl/docker-mailserver:${{ matrix.version }}
           push: true
