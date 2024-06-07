@@ -21,8 +21,6 @@ jobs:
           - v13.1.0
           - v13.0.1
           - v13.0.0
-          - v12.1.0
-          - v12.0.0
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
