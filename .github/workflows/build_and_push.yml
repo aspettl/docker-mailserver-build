@@ -40,6 +40,18 @@ jobs:
           repository: docker-mailserver/docker-mailserver
           submodules: recursive
           ref: ${{ matrix.version }}
+      - name: Check out fixes required for docker build
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            clamav-base-image.patch
+          sparse-checkout-cone-mode: false
+          path: patch_files
+      - name: Apply fixes required for docker build
+        shell: bash
+        run: |
+          patch -p1 -f --no-backup-if-mismatch < patch_files/clamav-base-image.patch
+          rm -f clamav-base-image.patch
       - name: Determine required variable values
         id: vars
         shell: bash
