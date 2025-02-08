@@ -45,13 +45,16 @@ jobs:
         with:
           sparse-checkout: |
             clamav-base-image.patch
+            dovecot-gpg-key-url.patch
           sparse-checkout-cone-mode: false
           path: patch_files
       - name: Apply fixes required for docker build
         shell: bash
         run: |
-          patch -p1 -f --no-backup-if-mismatch < patch_files/clamav-base-image.patch
+          [[ "${{ matrix.version }}" =~ ^v1[34] ]] && patch -p1 -f --no-backup-if-mismatch --reject-file=- < patch_files/clamav-base-image.patch
+          [[ "${{ matrix.version }}" =~ ^v13 ]] && patch -p1 -f --no-backup-if-mismatch --reject-file=- < patch_files/dovecot-gpg-key-url.patch
           rm -f clamav-base-image.patch
+          rm -f dovecot-gpg-key-url.patch
       - name: Determine required variable values
         id: vars
         shell: bash

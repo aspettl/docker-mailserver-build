@@ -1,0 +1,13 @@
+diff --git a/target/scripts/build/packages.sh b/target/scripts/build/packages.sh
+index a025c3b4..57b32682 100644
+--- a/target/scripts/build/packages.sh
++++ b/target/scripts/build/packages.sh
+@@ -109,7 +109,7 @@ function _install_dovecot() {
+   # when building for another architecture.
+   if [[ ${DOVECOT_COMMUNITY_REPO} -eq 1 ]] && [[ "$(uname --machine)" == "x86_64" ]]; then
+     _log 'trace' 'Using Dovecot community repository'
+-    curl https://repo.dovecot.org/DOVECOT-REPO-GPG | gpg --import
++    curl https://repo.dovecot.org/DOVECOT-REPO-GPG-2.3 | gpg --import
+     gpg --export ED409DA1 > /etc/apt/trusted.gpg.d/dovecot.gpg
+     echo "deb https://repo.dovecot.org/ce-2.3-latest/debian/bullseye bullseye main" > /etc/apt/sources.list.d/dovecot.list
+ 
