@@ -59,7 +59,7 @@ jobs:
           echo "version=$(<VERSION)" >> $GITHUB_OUTPUT
           echo "git_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           build-args: |
