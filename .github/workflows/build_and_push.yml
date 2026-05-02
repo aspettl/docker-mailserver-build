@@ -43,6 +43,7 @@ jobs:
         with:
           sparse-checkout: |
             clamav-base-image.patch
+            dovecot-fts-xapian.patch
           sparse-checkout-cone-mode: false
           path: patch_files
       - name: Apply fixes required for docker build
@@ -50,6 +51,8 @@ jobs:
         run: |
           [[ "${{ matrix.version }}" =~ ^v14 ]] && patch -p1 -f --no-backup-if-mismatch --reject-file=- < patch_files/clamav-base-image.patch
           rm -f clamav-base-image.patch
+          [[ "${{ matrix.version }}" =~ ^(v15\.0\..+|v15\.1\.0)$ ]] && patch -p1 -f --no-backup-if-mismatch --reject-file=- < patch_files/dovecot-fts-xapian.patch
+          rm -f dovecot-fts-xapian.patch
       - name: Determine required variable values
         id: vars
         shell: bash
