@@ -16,9 +16,6 @@ jobs:
         version:
           - v16.0.0
           - v15.1.0
-          - v15.0.2
-          - v15.0.1
-          - v15.0.0
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
