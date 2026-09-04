@@ -14,6 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         version:
+          - v16.0.1
           - v16.0.0
           - v15.1.0
     runs-on: ubuntu-latest
