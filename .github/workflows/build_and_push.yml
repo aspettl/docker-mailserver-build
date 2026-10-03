@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '32 1 * * 6' # every Saturday at 01:32
+    - cron: '32 22 * * 5' # every Friday at 22:32
 
 jobs:
   docker:
