@@ -4,10 +4,11 @@ Regular image rebuilds of https://github.com/docker-mailserver/docker-mailserver
 
 Support table:
 
-| Major version    | Images rebuilt weekly       |
-| ---------------- | --------------------------- |
-| Current (16.x)   | All                         |
-| Previous (15.x)  | Latest minor (15.1.x)       |
+| Major version    | Images rebuilt weekly                                  |
+| ---------------- | ------------------------------------------------------ |
+| Current (17.x)   | Not needed anymore - upstream now rebuilds every week! |
+| Previous (16.x)  | All                                                    |
+| Previous (15.x)  | Latest minor (15.1.x)                                  |
 
 Discontinued:
 
